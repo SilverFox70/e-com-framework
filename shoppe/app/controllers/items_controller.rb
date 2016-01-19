@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    p @item
     if @item.save
       redirect_to @item
     else
@@ -27,12 +26,17 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
     if @item.update(item_params)
       redirect_to @item
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
   end
 
   private

@@ -12,6 +12,10 @@
     <p>Description: </p>
     <p><%= item.description %></p>
     <p><%= link_to 'Edit', edit_item_path(item) %></p>
+    <hr>
+    <p><%= link_to 'Delete', item_path(item),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
   </article>
   <hr>
 <% end %>
