@@ -1,0 +1,14 @@
+<h1>All items for sale</h1>
+<hr>
+<% @items.each do |item| %>
+  <article id="<%= item.id %>">
+    <center><img src="<%= item.picture_url %>" title="<%= item.name %>" height="150px" style="float: right; border-raidus: 50%"></center>
+    <h3><%= item.name %></h3>
+    <p>Price: $<%= item.price_as_dollars %></p>
+    <p>UPC: <%= item.upc %></p>
+    <p>Quantity in stock: <%= item.quantity %></p>
+    <p>Description: </p>
+    <p><%= item.description %></p>
+  </article>
+  <hr>
+<% end %>
