@@ -1,14 +1,17 @@
 <h1>All items for sale</h1>
 <hr>
+<%= link_to 'Add an item', new_item_path %>
+<hr>
 <% @items.each do |item| %>
   <article id="<%= item.id %>">
     <center><img src="<%= item.picture_url %>" title="<%= item.name %>" height="150px" style="float: right; border-raidus: 50%"></center>
-    <h3><%= item.name %></h3>
+    <h3><%= link_to "#{item.name}", item_path(item) %></h3>
     <p>Price: $<%= item.price_as_dollars %></p>
-    <p>UPC: <%= item.upc %></p>
+    <p>UPC: <%= item.upc.upcase %></p>
     <p>Quantity in stock: <%= item.quantity %></p>
     <p>Description: </p>
     <p><%= item.description %></p>
+    <p><%= link_to 'Edit', edit_item_path(item) %></p>
   </article>
   <hr>
 <% end %>

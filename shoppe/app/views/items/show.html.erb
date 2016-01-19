@@ -12,7 +12,9 @@
 </p>
 <p>
   <strong>UPC:</strong>
-  <%= @item.upc %>
+  <%= @item.upc.upcase %>
 </p>
 <p><strong>Description:</strong></p>
 <p><%= @item.description %></p>
+
+<%= link_to 'Back to items list', items_path %>
