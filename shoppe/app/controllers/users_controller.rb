@@ -37,12 +37,9 @@ class UsersController < ApplicationController
   end
 
   def make_admin
-    p "======================================="
-    p params.inspect
-    p "======================================="
-    # @user = User.find(params[:id])
-    # @user.update(user_type: 1)
-    # redirect_to users_path
+    @user = User.find(params[:id])
+    @user.update(user_type: 1)
+    redirect_to users_path
   end
 
   def make_customer
