@@ -14,11 +14,11 @@
     <hr>
     <% if !user.is_admin? %>
       <%= form_for :user, :url => { :action => 'make_admin', params: {id: user.id} } do |f| %>
-        <p><%= f.submit "Make Admin" %></p>
+        <p><%= f.submit "Make Admin", data: { confirm: 'Are you sure?' } %></p>
       <% end %>
     <% else %>
       <%= form_for :user, :url => { :action => 'make_customer', params: {id: user.id} } do |f| %>
-        <p><%= f.submit "Make Customer" %></p>
+        <p><%= f.submit "Make Customer", data: { confirm: 'Are you sure?' } %></p>
       <% end %>
     <% end %>
     <p><%= link_to 'Delete', user_path(user),
