@@ -16,8 +16,8 @@
         <h5><%= link_to "#{item.name}", item_path(item) %></h5>
         <p>Price: $<%= item.formatted_price %></p>
         <% if current_user && current_user.is_admin? %>
-        <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %></p>
-        <p><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.is_admin? %></p>
+        <p><%= link_to 'Edit', edit_item_path(item) %></p>
+        <p><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <% end %>
         <hr>
       </div>

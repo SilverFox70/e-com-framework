@@ -1,6 +1,8 @@
+include UsersHelper
+
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.order(:created_at)
     redirect_to '/' unless current_user && current_user.is_admin?
   end
 
