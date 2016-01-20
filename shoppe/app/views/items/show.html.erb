@@ -1,0 +1,20 @@
+<img src="<%= @item.picture_url %>" title="<%= @item.name %>">
+<p>
+  <strong><%= @item.name %></strong>
+</p>
+<p>
+  <strong>Price:</strong>
+  $<%= @item.price_as_dollars %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @item.quantity %>
+</p>
+<p>
+  <strong>UPC:</strong>
+  <%= @item.upc.upcase %>
+</p>
+<p><strong>Description:</strong></p>
+<p><%= @item.description %></p>
+
+<%= link_to 'Back to items list', items_path %>
