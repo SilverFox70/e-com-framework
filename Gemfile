@@ -38,6 +38,9 @@ gem 'pry-byebug'
 
 gem 'simplecov', :require => false, :group => :test
 
+# faker to seed db in dev
+gem 'faker'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
@@ -56,7 +59,4 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  # faker to seed db in dev
-  gem 'faker'
 end
