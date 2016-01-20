@@ -1,20 +1,16 @@
-<img src="<%= @item.picture_url %>" title="<%= @item.name %>">
-<p>
-  <strong><%= @item.name %></strong>
-</p>
-<p>
-  <strong>Price:</strong>
-  $<%= @item.price_as_dollars %>
-</p>
-<p>
-  <strong>Quantity:</strong>
-  <%= @item.quantity %>
-</p>
-<p>
-  <strong>UPC:</strong>
-  <%= @item.upc.upcase %>
-</p>
-<p><strong>Description:</strong></p>
-<p><%= @item.description %></p>
-
-<%= link_to 'Back to items list', items_path %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @item.name %></h3>
+    </div>
+    <div class="panel-body">
+      <img src="<%= @item.picture_url %>" title="<%= @item.name %>" style="float: right; margin-left: 50px; border-radius: 5%">
+      <p><strong>Price:</strong> $<%= @item.price_as_dollars %></p>
+      <p><strong>In stock:</strong> <%= @item.quantity %></p>
+      <p><strong>UPC:</strong> <%= @item.upc.upcase %></p>
+      <p><strong>Description:</strong></p>
+      <p><%= @item.description %></p>
+    </div>
+    <div class="panel-footer"><%= link_to 'Back', items_path %></div>
+  </div>
+</div>

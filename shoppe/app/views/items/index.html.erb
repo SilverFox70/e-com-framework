@@ -1,17 +1,28 @@
-<h1>All items for sale</h1>
-<hr>
-<% @items.each do |item| %>
-  <article id="<%= item.id %>">
-    <center><img src="<%= item.picture_url %>" title="<%= item.name %>" height="150px" style="float: right; border-raidus: 50%"></center>
-    <h3><%= link_to "#{item.name}", item_path(item) %></h3>
-    <p>Price: $<%= item.price_as_dollars %></p>
-    <p>UPC: <%= item.upc.upcase %></p>
-    <p>Quantity in stock: <%= item.quantity %></p>
-    <p>Description: </p>
-    <p><%= item.description %></p>
-    <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %> | <%= link_to 'Delete', item_path(item),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } if current_user && current_user.is_admin? %></p>
-  </article>
-  <hr>
-<% end %>
+<div class="container">
+   <center>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Shoppe</h1>
+        <h5>We have everything you'll ever need. Except chocolate.</h5>
+      </div>
+    </div>
+    <div class="page-header">
+      <h1>All items for sale</h1>
+    </div>
+    <div class="row">
+      <% @items.each do |item| %>
+      <div class="col-md-4">
+        <%= link_to image_tag(item.picture_url, :height => "150px", :style => "border-radius: 50%"), item_path(item) %>
+        <h5><%= link_to "#{item.name}", item_path(item) %></h5>
+        <p>Price: $<%= item.price_as_dollars %></p>
+        <% if current_user && current_user.is_admin? %>
+        <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %></p>
+        <p><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.is_admin? %></p>
+        <% end %>
+        <hr>
+      </div>
+      <% end %>
+      <hr>
+    </div>
+  </center>
+</div>

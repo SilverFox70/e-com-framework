@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
   validates :upc, presence: true
 
   before_save :convert_to_pennies
+  before_update :convert_to_pennies
 
   def convert_to_pennies
     self.price = self.price * 100
