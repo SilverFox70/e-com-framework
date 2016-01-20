@@ -37,6 +37,7 @@ RSpec.describe ItemsController, type: :controller do
         expect{
           post :create, item: item_params
         }.to change{Item.count}.by(1)
+        expect(response).to redirect_to("/items/#{Item.last.id}")
       end
     end
     context 'when given invalid params' do
@@ -51,6 +52,7 @@ RSpec.describe ItemsController, type: :controller do
         expect{
           post :create, item: item_params
         }.to_not change{Item.count}
+        expect(response).to have_rendered(:new)
       end
     end
   end
