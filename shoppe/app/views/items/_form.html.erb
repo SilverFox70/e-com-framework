@@ -1,22 +1,20 @@
-<%= form_for :item, url: items_path, html: {:class => 'form-horizontal'} do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
-      </h2>
-      <ul>
-        <% @item.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<% if @item.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h3>
     </div>
-  <% end %>
+    <div class="panel-body">
+      <%= @item.errors.full_messages.join(", ") %>
+    </div>
+  </div>
+<% end %>
+<%= form_for :item, url: items_path, html: {:class => 'form-horizontal'} do |f| %>
 <fieldset>
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="name">Item Name</label>
   <div class="col-md-6">
-  <input id="name" name="item[name]" type="text" placeholder="nil" value="<%= @item.try(:name) %>" class="form-control input-md" required="">
+  <input id="name" name="item[name]" type="text" placeholder="Steve Jobs' Turtleneck" value="<%= @item.try(:name) %>" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -27,7 +25,7 @@
   <div class="col-md-6">
     <div class="input-group">
       <span class="input-group-addon">$</span>
-      <input id="price" name="item[price]" class="form-control" placeholder="5.00" value="<%= @item.try(:price_as_dollars) %>" type="text" required="">
+      <input id="price" name="item[price]" class="form-control" placeholder="5.00" value="<%= @item.formatted_price unless @item.price.nil? %>" type="text" required="">
     </div>
 
   </div>

@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
       <img src="<%= @item.picture_url %>" title="<%= @item.name %>" style="float: right; margin-left: 50px; border-radius: 5%">
-      <p><strong>Price:</strong> $<%= @item.price_as_dollars %></p>
+      <p><strong>Price:</strong> $<%= @item.formatted_price %></p>
       <p><strong>In stock:</strong> <%= @item.quantity %></p>
       <p><strong>UPC:</strong> <%= @item.upc.upcase %></p>
       <p><strong>Description:</strong></p>

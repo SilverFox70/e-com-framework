@@ -14,7 +14,7 @@
       <div class="col-md-4">
         <%= link_to image_tag(item.picture_url, :height => "150px", :style => "border-radius: 50%"), item_path(item) %>
         <h5><%= link_to "#{item.name}", item_path(item) %></h5>
-        <p>Price: $<%= item.price_as_dollars %></p>
+        <p>Price: $<%= item.formatted_price %></p>
         <% if current_user && current_user.is_admin? %>
         <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %></p>
         <p><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.is_admin? %></p>
