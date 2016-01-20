@@ -9,9 +9,7 @@
     <p>Quantity in stock: <%= item.quantity %></p>
     <p>Description: </p>
     <p><%= item.description %></p>
-    <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %></p>
-    <hr>
-    <p><%= link_to 'Delete', item_path(item),
+    <p><%= link_to 'Edit', edit_item_path(item) if authenticated? && current_user.is_admin? %> | <%= link_to 'Delete', item_path(item),
               method: :delete,
               data: { confirm: 'Are you sure?' } if current_user && current_user.is_admin? %></p>
   </article>
