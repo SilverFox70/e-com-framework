@@ -1,0 +1,30 @@
+<%= link_to 'New user', new_user_path, controller: 'users' %>
+
+<h1>All Users</h1>
+<hr>
+<% @users.each do |user| %>
+  <article id="<%= user.id %>">
+    <h3><%= link_to "#{user.firstname} #{user.lastname}", user_path(user) %></h3>
+    <p>
+      <%= user.email %>
+    </p>
+    <p>
+      User has admin privilege? <%= user.is_admin? %>
+    </p>
+    <hr>
+    <% if !user.is_admin? %>
+      <%= form_for :user, :url => { :action => 'make_admin', params: {id: user.id} } do |f| %>
+        <p><%= f.submit "Make Admin" %></p>
+      <% end %>
+    <% else %>
+      <%= form_for :user, :url => { :action => 'make_customer', params: {id: user.id} } do |f| %>
+        <p><%= f.submit "Make Customer" %></p>
+      <% end %>
+    <% end %>
+    <p><%= link_to 'Delete', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+    </p>
+  </article>
+  <hr>
+<% end %>

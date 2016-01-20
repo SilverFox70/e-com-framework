@@ -1,0 +1,33 @@
+<%= form_for :user, url: users_path do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= label_tag(:firstname, "First Name: ") %><br>
+    <%= text_field(:user, :firstname) %>
+  </p>
+  <p>
+    <%= label_tag(:lastname, "Last Name: ") %><br>
+    <%= text_field(:user, :lastname) %>
+  </p>
+  <p>
+    <%= label_tag(:email, "Email Address: ") %><br>
+    <%= email_field(:user, :email) %>
+  </p>
+  <p>
+    <%= label_tag('password_plaintext', "Password: ") %><br>
+    <%= password_field_tag('password_plaintext') %>
+  </p>
+  <p>
+    <%= f.submit "Register" %>
+  </p>
+<% end %>

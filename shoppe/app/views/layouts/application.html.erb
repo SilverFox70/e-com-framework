@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <ul>
+<% if authenticated? && current_user.is_admin? %>
+  <li><%= link_to 'Add an item', new_item_path %></li>
+  <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
+  <li><%= link_to 'View User List', users_path %> </li>
+<% elsif authenticated? %>
+  <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
+<% else %>
+  <li><%= link_to 'Login', new_session_path %></li>
+  <li><%= link_to 'Register', new_user_path %></li>
+<% end %>
+  </ul>
+</nav>
 
 <%= yield %>
 

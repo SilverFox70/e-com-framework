@@ -1,2 +1,8 @@
 <h1>Welcome to Shoppe!</h1>
-<%= link_to 'See all items for sale', controller: 'items' %>
+<%= link_to 'See all items for sale', controller: 'items' %> | <%= link_to 'New user', new_user_path, controller: 'users' %>
+<hr>
+<p>session[:user_id]: <%= session[:user_id] %></p>
+<p>current_user: <%= current_user.id if current_user %></p>
+<p>is authenticated? <%= authenticated? %></p>
+<p>is admin? <%= current_user.is_admin? if current_user %></p>
+<hr>
