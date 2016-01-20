@@ -85,7 +85,7 @@ RSpec.describe Item, type: :model do
         expect(item_no_upc.errors[:upc]).to include("can't be blank")
       end
     end
-    context "when the item's field have all appropriate values" do
+    context "when the item's fields have all appropriate values" do
       it 'will save the item in the database' do
         expect{item.save}.to change{Item.count}.by(1)
       end
