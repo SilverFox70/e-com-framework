@@ -2,28 +2,30 @@
 <html>
 <head>
   <title>Shoppe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag "/css/default" %>
   <%= csrf_meta_tags %>
 </head>
+<%= render 'layouts/nav' %>
 <body>
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-  <% if authenticated? && current_user.is_admin? %>
-    <li><%= link_to 'Add an item', new_item_path %></li>
-    <li><%= link_to 'View User List', users_path %> </li>
-    <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
-  <% elsif authenticated? %>
-    <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'Login', new_session_path %></li>
-    <li><%= link_to 'Register', new_user_path %></li>
-  <% end %>
-  </ul>
-</nav>
 
 <%= yield %>
-
+<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h4 class="modal-title">Login</h4></center>
+      </div>
+      <div class="modal-body">
+        <%= render 'sessions/form' %>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

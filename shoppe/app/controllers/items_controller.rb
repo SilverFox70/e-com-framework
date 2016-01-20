@@ -1,6 +1,8 @@
+include UsersHelper
+
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.order(:created_at)
   end
 
   def show
@@ -9,6 +11,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    redirect_to '/' unless current_user && current_user.is_admin?
   end
 
   def edit
@@ -41,6 +44,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :description, :quantity, :picture_url, :upc)
+    params.require(:item).permit(:name, :description, :quantity, :picture_url, :upc, :price)
   end
 end

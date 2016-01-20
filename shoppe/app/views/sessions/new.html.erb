@@ -1,25 +1,14 @@
-<h1>User login</h1>
-<%= form_for :session, url: sessions_path do |f| %>
+<div class="container">
   <% if @error %>
-    <div id="error_explanation">
-      <h2>
-        Login failed:
-      </h2>
-      <ul>
-        <li><%= @error %></li>
-      </ul>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">Login failed</h3>
     </div>
+    <div class="panel-body">
+      <%= @error %>
+    </div>
+  </div>
   <% end %>
-  <p>
-    <%= label_tag(:email, "Email Address: ") %><br>
-    <%= email_field(:user, :email) %>
-  </p>
-  <p>
-    <%= label_tag('password_plaintext', "Password: ") %><br>
-    <%= password_field_tag('password_plaintext') %>
-  </p>
-  <p>
-    <%= f.submit "Login" %>
-  </p>
-<% end %>
-
+  <legend>Login</legend>
+  <%= render 'sessions/form' %>
+</div>

@@ -6,4 +6,7 @@ class Item < ActiveRecord::Base
   validates :picture_url, presence: true
   validates :upc, presence: true
 
+  def formatted_price
+    return '%.2f' % self.price
+  end
 end
