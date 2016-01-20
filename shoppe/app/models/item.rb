@@ -1,6 +1,4 @@
 class Item < ActiveRecord::Base
-  before_save :convert_to_pennies
-
   validates :name, presence: true
   validates :price, presence: true, numericality: { greater_than: 0}
   validates :description, presence: true
@@ -8,12 +6,4 @@ class Item < ActiveRecord::Base
   validates :picture_url, presence: true
   validates :upc, presence: true
 
-
-  def convert_to_pennies
-    self.price = self.price * 100
-  end
-
-  def price_as_dollars
-    return '%.2f' % (self.price / 100.0)
-  end
 end
