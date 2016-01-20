@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
   def create
     # where login form POSTs to
-    @user = User.find_by_email(params["user"]["email"])
+    @user = User.find_by_email(params["email"])
     if @user && @user.authenticate(params["password_plaintext"])
       session[:user_id] = @user.id
       redirect_to '/'

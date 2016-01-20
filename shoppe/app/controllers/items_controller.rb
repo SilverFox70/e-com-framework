@@ -1,3 +1,5 @@
+include UsersHelper
+
 class ItemsController < ApplicationController
   def index
     @items = Item.order(:created_at)
@@ -9,6 +11,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    redirect_to '/' unless current_user && current_user.is_admin?
   end
 
   def edit
