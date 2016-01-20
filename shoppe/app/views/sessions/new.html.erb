@@ -1,0 +1,25 @@
+<h1>User login</h1>
+<%= form_for :session, url: sessions_path do |f| %>
+  <% if @error %>
+    <div id="error_explanation">
+      <h2>
+        Login failed:
+      </h2>
+      <ul>
+        <li><%= @error %></li>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= label_tag(:email, "Email Address: ") %><br>
+    <%= email_field(:user, :email) %>
+  </p>
+  <p>
+    <%= label_tag('password_plaintext', "Password: ") %><br>
+    <%= password_field_tag('password_plaintext') %>
+  </p>
+  <p>
+    <%= f.submit "Login" %>
+  </p>
+<% end %>
+
