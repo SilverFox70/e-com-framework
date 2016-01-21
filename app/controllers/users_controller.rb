@@ -2,8 +2,8 @@ include UsersHelper
 
 class UsersController < ApplicationController
   def index
-    @users = User.order(:created_at)
     redirect_to '/' unless current_user && current_user.is_admin?
+    @users = User.order(:created_at)
   end
 
   def show
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    redirect_to '/' unless current_user && current_user == @user
   end
 
   def create
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    redirect_to '/' unless current_user && current_user == @user
     if @user.update(user_params)
       redirect_to @user
     else
@@ -39,18 +41,21 @@ class UsersController < ApplicationController
   end
 
   def make_admin
+    redirect_to '/' unless current_user && current_user.is_admin?
     @user = User.find(params[:id])
     @user.update(user_type: 1)
     redirect_to users_path
   end
 
   def make_customer
+    redirect_to '/' unless current_user && current_user.is_admin?
     @user = User.find(params[:id])
     @user.update(user_type: 0)
     redirect_to users_path
   end
 
   def destroy
+    redirect_to '/' unless current_user && current_user.is_admin?
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path

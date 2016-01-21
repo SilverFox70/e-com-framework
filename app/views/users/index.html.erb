@@ -9,12 +9,12 @@
         <h5><%= link_to "#{user.firstname + " " + user.lastname}", user_path(user) %></h5>
         <p><%= user.is_admin? ? "Administrator" : "Customer" %></p>
         <p><%= user.email %></p>
-        <% if !user.is_admin? %>
-          <%= form_for :user, :url => { :action => 'make_admin', params: {id: user.id} } do |f| %>
-          <p><%= f.submit "Make Admin", data: { confirm: 'Are you sure?' } %><% end %></p>
-        <% else %>
+        <% if user.is_admin? %>
           <%= form_for :user, :url => { :action => 'make_customer', params: {id: user.id} } do |f| %>
           <p><%= f.submit "Make Customer", data: { confirm: 'Are you sure?' } %><% end %></p>
+        <% else %>
+          <%= form_for :user, :url => { :action => 'make_admin', params: {id: user.id} } do |f| %>
+          <p><%= f.submit "Make Admin", data: { confirm: 'Are you sure?' } %><% end %></p>
         <% end %>
         <hr>
       </div>

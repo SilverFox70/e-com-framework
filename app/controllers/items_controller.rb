@@ -1,6 +1,8 @@
 include UsersHelper
 
 class ItemsController < ApplicationController
+  before_action :check_permissions, except: [:index, :show]
+
   def index
     @items = Item.order(:created_at)
   end
@@ -11,7 +13,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    redirect_to '/' unless current_user && current_user.is_admin?
   end
 
   def edit
@@ -45,5 +46,14 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :quantity, :picture_url, :upc, :price)
+  end
+
+  def check_permissions
+    if !current_user
+      flash[:error] = "You must log in to complete that action."
+    elsif !current_user.is_admin?
+      flash[:error] = "You are not authorized to complete that action."
+    end
+    redirect_to new_session_url unless (current_user && current_user.is_admin?)
   end
 end
