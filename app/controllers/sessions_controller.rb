@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # where login form POSTs to
     @user = User.find_by_email(params["email"])
     if @user && @user.authenticate(params["password_plaintext"])
       session[:user_id] = @user.id
@@ -23,7 +22,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # where logout link goes to
     session[:user_id] = nil
     redirect_to '/'
   end

@@ -12,7 +12,30 @@
 </head>
 <%= render 'layouts/nav' %>
 <body>
-
+  <% if flash[:notice] %>
+    <center>
+      <div class="alert alert-info" data-dismiss="alert" role="alert">
+        <%= flash[:notice] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    </center>
+  <% end %>
+  <% if flash[:error] %>
+    <center>
+      <div class="alert alert-danger" data-dismiss="alert" role="alert">
+        <%= flash[:error] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    </center>
+  <% end %>
+  <% if flash[:success] %>
+    <center>
+      <div class="alert alert-success" data-dismiss="alert" role="alert">
+        <%= flash[:success] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    </center>
+  <% end %>
 <%= yield %>
 <div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
   <div class="modal-dialog" role="document">

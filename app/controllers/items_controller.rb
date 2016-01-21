@@ -1,6 +1,8 @@
 include UsersHelper
 
 class ItemsController < ApplicationController
+  before_action :check_permissions, except: [:index, :show]
+
   def index
     @items = Item.order(:created_at)
   end
@@ -11,7 +13,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    redirect_to '/' unless current_user && current_user.is_admin?
   end
 
   def edit
