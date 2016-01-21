@@ -56,4 +56,13 @@ RSpec.describe ItemsController, type: :controller do
       end
     end
   end
+
+  describe 'item show' do
+    it 'should render the item view page' do
+      item = Item.first
+      expect{
+        get :show, id: item.id
+      }.to have_rendered(:show)
+    end
+  end
 end
