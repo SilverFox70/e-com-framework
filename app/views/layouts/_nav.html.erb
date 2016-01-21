@@ -15,17 +15,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if authenticated? && current_user.is_admin? %>
-        <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
-        <li><%= link_to 'Add an item', new_item_path %></li>
-        <li><%= link_to 'View User List', users_path %> </li>
-        <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
+          <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
+          <li><%= link_to 'Add an item', new_item_path %></li>
+          <li><%= link_to 'View User List', users_path %> </li>
+          <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
         <% elsif authenticated? %>
-        <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
-        <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
+          <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
+          <li><%= link_to 'Logout', session_path, method: :delete %></li>
         <% else %>
-        <li><a href="" data-toggle="modal" data-target="#login-form">Login</a></li>
-        <!-- <li><%= link_to 'Login', new_session_path %></li> -->
-        <li><%= link_to 'Register', new_user_path %></li>
+          <li><a href="" data-toggle="modal" data-target="#login-form">Login</a></li>
+          <!-- <li><%= link_to 'Login', new_session_path %></li> -->
+          <li><%= link_to 'Register', new_user_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
