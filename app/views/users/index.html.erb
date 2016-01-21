@@ -11,10 +11,15 @@
         <p><%= user.email %></p>
         <% if user.is_admin? %>
           <%= form_for :user, :url => { :action => 'make_customer', params: {id: user.id} } do |f| %>
-          <p><%= f.submit "Make Customer", data: { confirm: 'Are you sure?' } %><% end %></p>
+          <% if user == current_user %>
+          <p><%= f.submit "Make Customer", class: "btn btn-xs btn-inverse", disabled: true, data: { confirm: 'Are you sure you want to make this user a customer?' } %></p>
+          <% else %>
+          <p><%= f.submit "Make Customer", class: "btn btn-xs btn-primary", data: { confirm: 'Are you sure you want to make this user a customer?' } %></p>
+          <% end %>
+          <% end %>
         <% else %>
           <%= form_for :user, :url => { :action => 'make_admin', params: {id: user.id} } do |f| %>
-          <p><%= f.submit "Make Admin", data: { confirm: 'Are you sure?' } %><% end %></p>
+          <p><%= f.submit "Make Administrator", class: "btn btn-xs btn-danger", data: { confirm: 'Are you sure you want to make this user an administrator?' } %><% end %></p>
         <% end %>
         <hr>
       </div>

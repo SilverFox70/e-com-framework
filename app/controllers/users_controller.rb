@@ -1,6 +1,8 @@
 include UsersHelper
 
 class UsersController < ApplicationController
+  before_action :check_permissions, except: [:index, :show, :new, :create]
+
   def index
     redirect_to '/' unless current_user && current_user.is_admin?
     @users = User.order(:created_at)
