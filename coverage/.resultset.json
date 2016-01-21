@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/spec/controllers/items_controller_spec.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/spec/controllers/items_controller_spec.rb": [
         1,
         null,
         1,
@@ -60,75 +60,90 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/spec/rails_helper.rb": [
         null,
         1,
         1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
         null,
         null,
         1,
-        null,
         1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
+        0,
+        0,
+        0,
         null,
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/environment.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/spec/rails_helper.rb": [
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/application.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/application.rb": [
         1,
         null,
         1,
@@ -165,12 +180,12 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/boot.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/environments/test.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/environments/test.rb": [
         1,
         null,
         null,
@@ -214,7 +229,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/assets.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -227,7 +242,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/backtrace_silencers.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -236,18 +251,18 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/cookies_serializer.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/filter_parameter_logging.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/inflections.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -265,18 +280,18 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/mime_types.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/session_store.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/initializers/wrap_parameters.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -292,7 +307,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/config/routes.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/config/routes.rb": [
         1,
         null,
         1,
@@ -357,19 +372,19 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/helpers/application_helper.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/helpers/items_helper.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/helpers/items_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/helpers/sessions_helper.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/helpers/users_helper.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/helpers/users_helper.rb": [
         1,
         1,
         0,
@@ -380,7 +395,9 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/controllers/items_controller.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/controllers/items_controller.rb": [
+        1,
+        null,
         1,
         1,
         1,
@@ -391,6 +408,7 @@
         null,
         null,
         1,
+        0,
         0,
         null,
         null,
@@ -428,14 +446,14 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/controllers/application_controller.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/spec/controllers/users_controller_spec.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
@@ -486,7 +504,9 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/controllers/users_controller.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/controllers/users_controller.rb": [
+        1,
+        null,
         1,
         1,
         0,
@@ -549,7 +569,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/spec/models/item_spec.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/spec/models/item_spec.rb": [
         1,
         null,
         1,
@@ -640,7 +660,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/models/item.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/models/item.rb": [
         1,
         1,
         1,
@@ -649,9 +669,12 @@
         1,
         1,
         null,
+        1,
+        0,
+        null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/spec/models/user_spec.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -701,7 +724,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/cuddly-octo-sniffle/shoppe/app/models/user.rb": [
+      "/Users/apprentice/Desktop/cuddly-octo-sniffle/app/models/user.rb": [
         1,
         1,
         null,
@@ -724,6 +747,6 @@
         null
       ]
     },
-    "timestamp": 1453332314
+    "timestamp": 1453342386
   }
 }
