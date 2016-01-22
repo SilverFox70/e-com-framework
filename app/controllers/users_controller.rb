@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.password = params[:password_plaintext]
     if @user.save
+      Cart.create(user_id: @user.id)
       session[:user_id] = @user.id
       redirect_to '/'
     else
