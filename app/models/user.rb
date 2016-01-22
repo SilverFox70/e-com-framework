@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-
+  has_one :cart
+  has_many :cart_items, through: :cart
+  has_many :items, through: :cart_items
   before_save :check_admin
 
   validates :firstname, presence: true
