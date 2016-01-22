@@ -22,6 +22,14 @@
           <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
         <% elsif authenticated? %>
           <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
+          <!-- Add ERB to count items in cart in Cart Button-->
+          <!-- Also, add functionality so that button directs to cart view -->
+          <li>
+            <button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> 0
+              </span>
+            </button>
+          </li>
           <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
         <% else %>
           <li><a href="" data-toggle="modal" data-target="#login-form">Login</a></li>
