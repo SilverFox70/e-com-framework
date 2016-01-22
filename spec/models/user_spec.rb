@@ -19,6 +19,54 @@ RSpec.describe User, type: :model do
                                 email: 'me@mail.com'
                                 )}
 
+  describe 'associations' do
+    it "has many carts" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(user1.cart).to eq cart1
+    end
+    it "has cart items" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(user1.cart_items).to include cartItem1
+    end
+    it "has many items" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(user1.items).to include item1
+    end
+  end
+
   describe 'validations' do
     context 'will raise an error' do
       it 'when the firstname field is empty' do

@@ -1,6 +1,13 @@
 require 'rails_helper'
 
+
 RSpec.describe Item, type: :model do
+  let(:item) {Item.new(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')}
   let(:item_no_name) {Item.new(price: 100,
                                description: 'Test',
                                quantity: 1,
@@ -38,12 +45,55 @@ RSpec.describe Item, type: :model do
                                quantity: 1,
                                picture_url:"www.some_url.com",
                                )}
-  let(:item) {Item.new(name: 'hat',
+
+  describe 'associations' do
+    it "has many carts" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
                        description: 'Test',
                        price: 1.99,
                        quantity: 1,
                        picture_url:"www.some_url.com",
-                       upc: '16876')}
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(item1.carts).to include cart1
+    end
+    it "has many cart items" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(item1.cart_items).to include cartItem1
+    end
+    it "has many users" do
+      user1 = User.create( firstname: 'John',
+                        lastname: 'Doe',
+                        email: "me@mail.com#{Time.now}",
+                        password: "#{Time.now}")
+      cart1 = Cart.create(user_id: user1.id)
+      item1= Item.create(name: 'hat',
+                       description: 'Test',
+                       price: 1.99,
+                       quantity: 1,
+                       picture_url:"www.some_url.com",
+                       upc: '16876')
+      cartItem1 = CartItem.create(cart_id: cart1.id,item_id: item1.id )
+      expect(item1.users).to include user1
+    end
+  end
+
   describe 'validations' do
     context 'will raise an error' do
       it 'when the name field is empty' do
