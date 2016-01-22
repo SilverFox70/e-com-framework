@@ -11,8 +11,8 @@
     </div>
     <div class="row">
       <% @items.each do |item| %>
-      <div class="col-md-4">
-        <%= link_to image_tag(item.picture_url, :height => "150px", :style => "border-radius: 50%"), item_path(item) %>
+      <div class="col-xs-12 col-md-4">
+        <%= link_to image_tag(item.picture_url, :height => "175px", :style => "border-radius: 50%"), item_path(item) %>
         <h5><%= link_to "#{item.name}", item_path(item) %></h5>
         <p>Price: $<%= item.formatted_price %></p>
         <% if current_user && current_user.is_admin? %>
