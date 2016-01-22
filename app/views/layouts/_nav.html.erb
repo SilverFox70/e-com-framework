@@ -22,7 +22,7 @@
           <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
         <% elsif authenticated? %>
           <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
-          <li><%= link_to 'Logout', session_path, method: :delete %></li>
+          <li><%= link_to 'Logout', session_path(session), method: :delete %></li>
         <% else %>
           <li><a href="" data-toggle="modal" data-target="#login-form">Login</a></li>
           <!-- <li><%= link_to 'Login', new_session_path %></li> -->
