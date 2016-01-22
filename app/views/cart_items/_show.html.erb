@@ -1,0 +1,14 @@
+<!-- TO DO: make a modal to access this shopping cart view; figure out how to route it when closing; figure out how to pass the proper data into the modal -->
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= current_user.email %> Shopping Cart</h3>
+    </div>
+    <div class="panel-body">
+      <p><strong><%= item.name %></strong>
+      <strong><%= item.quantity %></strong>
+      <strong><%= item.formatted_price %></strong></p>
+    </div>
+    <div class="panel-footer"><%= link_to 'Close', some_path %></div>
+  </div>
+</div>
