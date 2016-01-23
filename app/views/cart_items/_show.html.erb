@@ -1,15 +1,26 @@
-<!-- TO DO: make a modal to access this shopping cart view; figure out how to route it when closing; figure out how to pass the proper data into the modal -->
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= current_user.email %> Shopping Cart</h3>
-    </div>
-    <!-- In here use an iterator to go thru the list of items in cart -->
-    <div class="panel-body">
-      <p><strong><%= item.name %></strong>
-      <strong><%= item.quantity %></strong>
-      <strong><%= item.formatted_price %></strong></p>
-    </div>
-    <div class="panel-footer"><%= link_to 'Close', some_path %></div>
-  </div>
-</div>
+<table id='shopping-cart'>
+  <th>Item Name</th>
+  <th>Number Ordered</th>
+  <th>Price</th>
+  <% current_user.items.each do |item| %>
+    <tr>
+      <td><strong><%= item.name %></strong></td>
+      <td><strong>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <%= item.quantity %>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <% n = 0 %>
+            <% item.quantity.times do %>
+              <li><a href="/<%= item.id %>?qty=<%= n %>" class='qty'><%= n %></a></li>
+              <% n += 1 %>
+            <% end %>
+          </ul>
+        </div>
+      </strong></td>
+      <td><strong><%= item.formatted_price %></strong></td>
+    </tr>
+  <% end %>
+</table>

@@ -10,7 +10,12 @@
       <p><strong>UPC:</strong> <%= @item.upc.upcase %></p>
       <p><strong>Description:</strong></p>
       <p><%= @item.description %></p>
-      <p><h2><span class="label label-success lg"><%= link_to "Buy NOW", cart_items_path(:item_id => @item.id), method: :post %></span></h2></p>
+
+      <%= form_for :cart_item, url: cart_items_path do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :quantity, (1..@item.quantity) %>
+        <%= f.submit "Buy Now" %>
+      <% end %>
     </div>
     <div class="panel-footer"><%= link_to 'Back', items_path %></div>
   </div>
