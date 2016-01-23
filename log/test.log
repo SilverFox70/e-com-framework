@@ -4664,3 +4664,300 @@ Completed 200 OK in 447ms (Views: 8.7ms | ActiveRecord: 0.6ms)
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (133.1ms)[0m  [1mDROP DATABASE IF EXISTS "shoppe_test"[0m
+  [1m[35m (400.6ms)[0m  CREATE DATABASE "shoppe_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "cart_items" ("id" serial primary key, "cart_id" integer NOT NULL, "item_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "quantity" integer) 
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "carts" ("id" serial primary key, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "items" ("id" serial primary key, "name" character varying, "price" float, "description" text, "quantity" integer, "picture_url" character varying, "upc" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "firstname" character varying NOT NULL, "lastname" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "user_type" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160122021259')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160119224101')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160120001755')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160122005216')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160122005303')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"firstname"=>"John", "lastname"=>"Doe", "email"=>"me@mail.com"}, "password_plaintext"=>"[FILTERED]"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com"], ["password_digest", "$2a$04$BUnkYIRIxRNVzPvYgnIcAeNvo0i3kL5Jn.aXhdH68U3eryekGUS5q"], ["user_type", 0], ["created_at", "2016-01-23 01:50:43.732454"], ["updated_at", "2016-01-23 01:50:43.732454"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 1], ["created_at", "2016-01-23 01:50:43.742097"], ["updated_at", "2016-01-23 01:50:43.742097"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 72ms (ActiveRecord: 6.0ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"firstname"=>"John", "lastname"=>"Doe", "email"=>"me@mail.com"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 535ms (Views: 8.8ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$4G6k5LJLtdqHNT.6rJOqAuD/HxlkxtMfYCk8GJYle.fYe9NgYlHz2"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.292267"], ["updated_at", "2016-01-23 01:50:44.292267"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 2], ["created_at", "2016-01-23 01:50:44.294628"], ["updated_at", "2016-01-23 01:50:44.294628"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.303704"], ["updated_at", "2016-01-23 01:50:44.303704"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 2], ["item_id", 1], ["created_at", "2016-01-23 01:50:44.311513"], ["updated_at", "2016-01-23 01:50:44.311513"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$EYNLDdXE6nTmWeEPuhACR..1HMqvvsQVTVCtVjGnsLWWyzlrtMW4a"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.355643"], ["updated_at", "2016-01-23 01:50:44.355643"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 3], ["created_at", "2016-01-23 01:50:44.357844"], ["updated_at", "2016-01-23 01:50:44.357844"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.359806"], ["updated_at", "2016-01-23 01:50:44.359806"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 3], ["item_id", 2], ["created_at", "2016-01-23 01:50:44.361769"], ["updated_at", "2016-01-23 01:50:44.361769"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$LccW4zXb4TVLGQu3xrWe7evk4Y3g6R3A6chv7uxvbhMHOFsnly9/K"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.369987"], ["updated_at", "2016-01-23 01:50:44.369987"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 4], ["created_at", "2016-01-23 01:50:44.372028"], ["updated_at", "2016-01-23 01:50:44.372028"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.374084"], ["updated_at", "2016-01-23 01:50:44.374084"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 4], ["item_id", 3], ["created_at", "2016-01-23 01:50:44.376046"], ["updated_at", "2016-01-23 01:50:44.376046"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" INNER JOIN "carts" ON "users"."id" = "carts"."user_id" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$aebmRWCq2EDg2aP9//sKr.ZCbprFvahkWbrx4bHhyQlPOQtQLAkmK"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.393501"], ["updated_at", "2016-01-23 01:50:44.393501"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 5], ["created_at", "2016-01-23 01:50:44.395883"], ["updated_at", "2016-01-23 01:50:44.395883"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$C8ll6MY3NXrlGdjTFKzZquXb7/T860eVlSd6Cnu55HTTJCjoGw.xS"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.404338"], ["updated_at", "2016-01-23 01:50:44.404338"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 6], ["created_at", "2016-01-23 01:50:44.408019"], ["updated_at", "2016-01-23 01:50:44.408019"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.412013"], ["updated_at", "2016-01-23 01:50:44.412013"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 6], ["item_id", 4], ["created_at", "2016-01-23 01:50:44.414378"], ["updated_at", "2016-01-23 01:50:44.414378"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCartItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."id" = $2 LIMIT 1[0m  [["cart_id", 6], ["id", 4]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$GlJfEwM203uRhzOS1NVIZuR1J7hn8uzA8.GPHG/FtvpivTJ4a2RZy"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.435267"], ["updated_at", "2016-01-23 01:50:44.435267"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 7], ["created_at", "2016-01-23 01:50:44.437685"], ["updated_at", "2016-01-23 01:50:44.437685"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.439840"], ["updated_at", "2016-01-23 01:50:44.439840"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 7], ["item_id", 5], ["created_at", "2016-01-23 01:50:44.441793"], ["updated_at", "2016-01-23 01:50:44.441793"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" INNER JOIN "cart_items" ON "items"."id" = "cart_items"."item_id" WHERE "cart_items"."cart_id" = $1 AND "items"."id" = $2 LIMIT 1[0m  [["cart_id", 7], ["id", 5]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$WpObHb20clfg6jrOzIflrOn0T1W8cx18QVl7RlChr.nAQE8iVHjB."], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.455902"], ["updated_at", "2016-01-23 01:50:44.455902"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 8], ["created_at", "2016-01-23 01:50:44.460612"], ["updated_at", "2016-01-23 01:50:44.460612"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.462819"], ["updated_at", "2016-01-23 01:50:44.462819"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 8], ["item_id", 6], ["created_at", "2016-01-23 01:50:44.464895"], ["updated_at", "2016-01-23 01:50:44.464895"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCart Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "carts" INNER JOIN "cart_items" ON "carts"."id" = "cart_items"."cart_id" WHERE "cart_items"."item_id" = $1 AND "carts"."id" = $2 LIMIT 1[0m  [["item_id", 6], ["id", 8]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$l8Oh81lxSOM5EIQyC59vuefZr7xXyT8UlywNlRnZthCEh7lcbk8WC"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.475482"], ["updated_at", "2016-01-23 01:50:44.475482"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 9], ["created_at", "2016-01-23 01:50:44.477655"], ["updated_at", "2016-01-23 01:50:44.477655"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.479739"], ["updated_at", "2016-01-23 01:50:44.479739"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 9], ["item_id", 7], ["created_at", "2016-01-23 01:50:44.481684"], ["updated_at", "2016-01-23 01:50:44.481684"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCartItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "cart_items" WHERE "cart_items"."item_id" = $1 AND "cart_items"."id" = $2 LIMIT 1[0m  [["item_id", 7], ["id", 7]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$AyjZEccCoYovpfFmlTfFW.oLdjcfhAPLlWffiyPibAfccQ7jPLE.6"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.489193"], ["updated_at", "2016-01-23 01:50:44.489193"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 10], ["created_at", "2016-01-23 01:50:44.491292"], ["updated_at", "2016-01-23 01:50:44.491292"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.493348"], ["updated_at", "2016-01-23 01:50:44.493348"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 10], ["item_id", 8], ["created_at", "2016-01-23 01:50:44.495924"], ["updated_at", "2016-01-23 01:50:44.495924"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "carts" ON "users"."id" = "carts"."user_id" INNER JOIN "cart_items" ON "carts"."id" = "cart_items"."cart_id" WHERE "cart_items"."item_id" = $1 AND "users"."id" = $2 LIMIT 1[0m  [["item_id", 8], ["id", 10]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.529108"], ["updated_at", "2016-01-23 01:50:44.529108"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.533624"], ["updated_at", "2016-01-23 01:50:44.533624"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$JGbfMtaG90PXscK6MvQGS.XlMcsTH/68B8CPJwBdZqrCWps8/W1dq"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.540069"], ["updated_at", "2016-01-23 01:50:44.540069"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 11], ["created_at", "2016-01-23 01:50:44.542283"], ["updated_at", "2016-01-23 01:50:44.542283"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.544698"], ["updated_at", "2016-01-23 01:50:44.544698"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 11], ["item_id", 11], ["created_at", "2016-01-23 01:50:44.547308"], ["updated_at", "2016-01-23 01:50:44.547308"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT 1[0m  [["user_id", 11]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$0yRx.Lsm9EWgy5N61kLEKOVQcyQXzZgjxQF5/FI1dv.fxrrqC7e8."], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.555201"], ["updated_at", "2016-01-23 01:50:44.555201"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 12], ["created_at", "2016-01-23 01:50:44.558738"], ["updated_at", "2016-01-23 01:50:44.558738"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.562525"], ["updated_at", "2016-01-23 01:50:44.562525"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 12], ["item_id", 12], ["created_at", "2016-01-23 01:50:44.564918"], ["updated_at", "2016-01-23 01:50:44.564918"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCartItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "cart_items" INNER JOIN "carts" ON "cart_items"."cart_id" = "carts"."id" WHERE "carts"."user_id" = $1 AND "cart_items"."id" = $2 LIMIT 1[0m  [["user_id", 12], ["id", 10]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com2016-01-22 17:50:44 -0800' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com2016-01-22 17:50:44 -0800"], ["password_digest", "$2a$04$2Gw6RMTYZKD.cezDy019N.xw/60PC66lsYF9u58B37CvhuZxgR0ly"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.573772"], ["updated_at", "2016-01-23 01:50:44.573772"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 13], ["created_at", "2016-01-23 01:50:44.575843"], ["updated_at", "2016-01-23 01:50:44.575843"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["description", "Test"], ["price", 1.99], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "16876"], ["created_at", "2016-01-23 01:50:44.577997"], ["updated_at", "2016-01-23 01:50:44.577997"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 13], ["item_id", 13], ["created_at", "2016-01-23 01:50:44.579907"], ["updated_at", "2016-01-23 01:50:44.579907"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" INNER JOIN "cart_items" ON "items"."id" = "cart_items"."item_id" INNER JOIN "carts" ON "cart_items"."cart_id" = "carts"."id" WHERE "carts"."user_id" = $1 AND "items"."id" = $2 LIMIT 1[0m  [["user_id", 13], ["id", 13]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'me@mail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstname", "John"], ["lastname", "Doe"], ["email", "me@mail.com"], ["password_digest", "$2a$04$c9KNUH75JMxEqZ8ZSI9ate7Ys8dix1yJ3HS43jxmQ7ZnkFNPOqAzG"], ["user_type", 0], ["created_at", "2016-01-23 01:50:44.611968"], ["updated_at", "2016-01-23 01:50:44.611968"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
