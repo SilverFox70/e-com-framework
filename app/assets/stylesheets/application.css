@@ -30,3 +30,7 @@
   padding: 2px 8px;
   border: 1px slategray solid;
 }
+
+#remove-button {
+	background-color: red;
+}

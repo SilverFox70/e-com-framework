@@ -2,9 +2,10 @@
   <th>Item Name</th>
   <th>Number Ordered</th>
   <th>Price</th>
+  <th>Remove</th>
   <% current_user.cart_items.each do |cart_item| %>
     <% item = cart_item.item %>
-    <tr>
+    <tr id="<%= item.id %>">
       <td><strong><%= item.name %></strong></td>
       <td><strong>
         <div class="dropdown">
@@ -22,6 +23,13 @@
         </div>
       </strong></td>
       <td><strong><%= item.formatted_price %></strong></td>
+      <td>
+        <a href="/cart_items/<%= item.id %>" class='remove-button'>
+          <button id='remove-button' type="button" class="btn btn-sm" aria-label="Left Align">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </a>
+      </td>
     </tr>
   <% end %>
 </table>
