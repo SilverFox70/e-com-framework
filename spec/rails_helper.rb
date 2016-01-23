@@ -31,10 +31,16 @@ require 'database_cleaner'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   include Capybara::DSL
+  Capybara.run_server = true
+  Capybara.server_port = 7000
+  Capybara.app_host = "http://localhost:#{Capybara.server_port}"
 
 
   DatabaseCleaner.strategy = :truncation
