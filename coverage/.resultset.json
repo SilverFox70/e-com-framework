@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/craigwarren/Desktop/e-com-framework/spec/controllers/items_controller_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/controllers/items_controller_spec.rb": [
         1,
         null,
         1,
@@ -77,7 +77,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/rails_helper.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -136,14 +136,14 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/environment.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/application.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/application.rb": [
         1,
         null,
         1,
@@ -180,12 +180,12 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/boot.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/environments/test.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/environments/test.rb": [
         1,
         null,
         null,
@@ -229,7 +229,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/assets.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -242,7 +242,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/backtrace_silencers.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -251,18 +251,18 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/cookies_serializer.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/filter_parameter_logging.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/inflections.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -280,18 +280,18 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/mime_types.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/session_store.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/initializers/wrap_parameters.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -307,7 +307,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/factories/cart.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/factories/cart.rb": [
         null,
         null,
         null,
@@ -316,91 +316,14 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/factories/cart_item.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/factories/cart_item.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/factories/item.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/factories/user.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/config/routes.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+      "/Users/apprentice/Desktop/e-com-framework/spec/factories/item.rb": [
         null,
         null,
         null,
@@ -412,43 +335,120 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/helpers/cart_items_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/helpers/items_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/helpers/sessions_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/helpers/users_helper.rb": [
-        1,
-        1,
-        0,
+      "/Users/apprentice/Desktop/e-com-framework/spec/factories/user.rb": [
         null,
         null,
-        1,
-        0,
         null,
         null,
-        1,
-        0,
-        0,
         null,
-        0,
         null,
-        0,
+        null,
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/controllers/items_controller.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/config/routes.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/helpers/cart_items_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/helpers/items_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/helpers/users_helper.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/e-com-framework/app/controllers/items_controller.rb": [
         1,
         null,
         1,
@@ -500,14 +500,14 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/controllers/application_controller.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/controllers/users_controller_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
@@ -558,7 +558,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/controllers/users_controller.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -631,7 +631,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/models/cart_item_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/models/cart_item_spec.rb": [
         1,
         null,
         1,
@@ -690,14 +690,14 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/models/cart_item.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/models/cart_item.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/models/cart_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/models/cart_spec.rb": [
         1,
         null,
         1,
@@ -749,14 +749,14 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/models/cart.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/models/cart.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/models/item_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/models/item_spec.rb": [
         1,
         null,
         null,
@@ -897,7 +897,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/models/item.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/models/item.rb": [
         1,
         1,
         1,
@@ -915,7 +915,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/spec/models/user_spec.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -1013,7 +1013,7 @@
         null,
         null
       ],
-      "/Users/craigwarren/Desktop/e-com-framework/app/models/user.rb": [
+      "/Users/apprentice/Desktop/e-com-framework/app/models/user.rb": [
         1,
         1,
         1,
@@ -1038,6 +1038,6 @@
         null
       ]
     },
-    "timestamp": 1453488572
+    "timestamp": 1453513844
   }
 }

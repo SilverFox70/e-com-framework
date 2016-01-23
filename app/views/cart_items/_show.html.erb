@@ -2,17 +2,18 @@
   <th>Item Name</th>
   <th>Number Ordered</th>
   <th>Price</th>
-  <% current_user.items.each do |item| %>
+  <% current_user.cart_items.each do |cart_item| %>
+    <% item = cart_item.item %>
     <tr>
       <td><strong><%= item.name %></strong></td>
       <td><strong>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <%= item.quantity %>
+            <%= cart_item.quantity %>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <% n = 0 %>
+            <% n = 1 %>
             <% item.quantity.times do %>
               <li><a href="/<%= item.id %>?qty=<%= n %>" class='qty'><%= n %></a></li>
               <% n += 1 %>
