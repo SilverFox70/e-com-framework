@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+  padding: 0px 20px 20px 20px;
+  /*border: 2px dotted pink;*/
+}
+
+#shopping-cart td {
+  padding: 2px 8px;
+  border: 1px silver solid;
+}
+#shopping-cart th {
+  padding: 2px 8px;
+  border: 1px slategray solid;
+}
