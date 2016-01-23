@@ -7742,3 +7742,383 @@ Processing by ItemsController#index as HTML
 Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
   [1m[36mItem Load (2.7ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
   [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (16.8ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:01:23 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:23.977336"], ["updated_at", "2016-01-23 07:01:23.977336"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:23.992832"], ["updated_at", "2016-01-23 07:01:23.992832"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:23.998201"], ["updated_at", "2016-01-23 07:01:23.998201"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.4ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.1ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (7.9ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:01:52 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:52.853662"], ["updated_at", "2016-01-23 07:01:52.853662"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:52.869628"], ["updated_at", "2016-01-23 07:01:52.869628"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:01:52.872510"], ["updated_at", "2016-01-23 07:01:52.872510"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.9ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.1ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (9.1ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:03:03 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 82ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:03:03.477081"], ["updated_at", "2016-01-23 07:03:03.477081"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:03:03.504474"], ["updated_at", "2016-01-23 07:03:03.504474"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:03:03.508895"], ["updated_at", "2016-01-23 07:03:03.508895"]]
+  [1m[35m (0.6ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.2ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.1ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (8.9ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:08:00 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:08:01.152356"], ["updated_at", "2016-01-23 07:08:01.152356"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:08:01.163535"], ["updated_at", "2016-01-23 07:08:01.163535"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:08:01.166898"], ["updated_at", "2016-01-23 07:08:01.166898"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.7ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.5ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.1ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (9.2ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:11:34 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 44ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:11:34.788931"], ["updated_at", "2016-01-23 07:11:34.788931"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:11:34.812032"], ["updated_at", "2016-01-23 07:11:34.812032"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:11:34.817142"], ["updated_at", "2016-01-23 07:11:34.817142"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.4ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.1ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.9ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (13.3ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:22:00 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:00.717919"], ["updated_at", "2016-01-23 07:22:00.717919"]]
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:00.738580"], ["updated_at", "2016-01-23 07:22:00.738580"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:00.741626"], ["updated_at", "2016-01-23 07:22:00.741626"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.1ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:00.781790"], ["updated_at", "2016-01-23 07:22:00.781790"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:00.791958"], ["updated_at", "2016-01-23 07:22:00.791958"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/items.5" for 127.0.0.1 at 2016-01-22 23:22:00 -0800
+Processing by ItemsController#index as 
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.1ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (9.1ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:22:47 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 40ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:48.133038"], ["updated_at", "2016-01-23 07:22:48.133038"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:48.153272"], ["updated_at", "2016-01-23 07:22:48.153272"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:48.159919"], ["updated_at", "2016-01-23 07:22:48.159919"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (1.7ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:48.187843"], ["updated_at", "2016-01-23 07:22:48.187843"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:22:48.195691"], ["updated_at", "2016-01-23 07:22:48.195691"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/items.5" for 127.0.0.1 at 2016-01-22 23:22:48 -0800
+Processing by ItemsController#index as 
+  Rendered items/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.1ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (9.8ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:24:17 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:24:17.310399"], ["updated_at", "2016-01-23 07:24:17.310399"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:24:17.319633"], ["updated_at", "2016-01-23 07:24:17.319633"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:24:17.323710"], ["updated_at", "2016-01-23 07:24:17.323710"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (0.6ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:24:17.339277"], ["updated_at", "2016-01-23 07:24:17.339277"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:24:17.344145"], ["updated_at", "2016-01-23 07:24:17.344145"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/items?id=5" for 127.0.0.1 at 2016-01-22 23:24:17 -0800
+Processing by ItemsController#index as HTML
+  Parameters: {"id"=>"5"}
+  Rendered items/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.2ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (14.0ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/items" for 127.0.0.1 at 2016-01-22 23:40:14 -0800
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:40:14.419841"], ["updated_at", "2016-01-23 07:40:14.419841"]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:40:14.434098"], ["updated_at", "2016-01-23 07:40:14.434098"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:40:14.440363"], ["updated_at", "2016-01-23 07:40:14.440363"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ItemsController#index as HTML
+  Rendered items/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:40:14.465645"], ["updated_at", "2016-01-23 07:40:14.465645"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/items/4/edit" for 127.0.0.1 at 2016-01-22 23:40:14 -0800
+Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://127.0.0.1:60880/sessions/new
+Filter chain halted as :check_permissions rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+Started GET "/sessions/new" for 127.0.0.1 at 2016-01-22 23:40:14 -0800
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.7ms)
+  Rendered sessions/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_nav.html.erb (3.3ms)
+  Rendered sessions/_form.html.erb (0.7ms)
+Completed 200 OK in 963ms (Views: 962.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-0d963d524056748e34ac13ad5a19a791b54835fe5f52c2c31e78b2671d4c69c3.js" for 127.0.0.1 at 2016-01-22 23:40:15 -0800
+Started GET "/assets/application-25cf36dc00f183f38355541ea24dfcc8170147006c75009b97c55ca1f043d70b.css" for 127.0.0.1 at 2016-01-22 23:40:15 -0800
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("name", "price", "description", "quantity", "picture_url", "upc", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "hat"], ["price", 100.0], ["description", "a hat"], ["quantity", 1], ["picture_url", "www.some_url.com"], ["upc", "1234"], ["created_at", "2016-01-23 07:40:38.870573"], ["updated_at", "2016-01-23 07:40:38.870573"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/items/5" for 127.0.0.1 at 2016-01-22 23:40:38 -0800
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mItem Load (0.9ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1  [["id", 5]]
+Completed 404 Not Found in 17ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
