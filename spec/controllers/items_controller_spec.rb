@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ItemsController, type: :controller do
+RSpec.describe ItemsController, type: :controller, :js => true do
   describe 'index action' do
 
     before do
@@ -14,7 +14,7 @@ RSpec.describe ItemsController, type: :controller do
       end
     end
 
-    xit 'should load all items' do
+    it 'should load all items' do
       get :index
       expect(assigns[:items]).to eq @all_items
       expect(response.status).to eq 200
@@ -33,7 +33,7 @@ RSpec.describe ItemsController, type: :controller do
          picture_url: 'www.some_url.com',
          upc: '1234'}
       end
-      xit 'should create the item and redirect to items index page' do
+      it 'should create the item and redirect to items index page' do
         expect{
           post :create, item: item_params
         }.to change{Item.count}.by(1)
@@ -48,7 +48,7 @@ RSpec.describe ItemsController, type: :controller do
          picture_url: 'www.some_url.com',
          upc: '1234'}
       end
-      xit 'should not create the item and rerender the new item page' do
+      it 'should not create the item and rerender the new item page' do
         expect{
           post :create, item: item_params
         }.to_not change{Item.count}
@@ -72,3 +72,4 @@ RSpec.describe ItemsController, type: :controller do
   #   end
   # end
 end
+  DatabaseCleaner.clean

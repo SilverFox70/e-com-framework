@@ -48,3 +48,4 @@ describe "Cart Table Relationship" do
   end
 
 end
+  DatabaseCleaner.clean
