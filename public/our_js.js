@@ -22,6 +22,7 @@ var buyNow = function(event){
     success: function(response){
     console.log("THIS IS THE OUTPUT: " + response )
     $('#cart-item-count').html(" " + response);
+    $("tr#" + response).append();
     },
     error: console.log("THIS IS AN ERROR IN buyNow ajax"),
   });
@@ -47,7 +48,8 @@ var deleteItemLine = function(event){
     url: this_path,
   }).done(function(response){
     console.log("returned from cart_items controller: " + response);
-    $("tr#" + response).remove();
+    $("tr#" + response.id).remove();
+    $('#cart-item-count').html(" " + response.count);
   });
 };
 
