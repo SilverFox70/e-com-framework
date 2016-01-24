@@ -11,6 +11,15 @@ var bindListeners = function(){
   $('#checkout').on('click', 'a', checkoutCart);
 };
 
+var refreshCart = function(){
+  $.ajax({
+    method: 'GET',
+    url: '/carts'
+  }).done(function(response){
+    $('#shopping-cart').replaceWith(response)
+  });
+};
+
 var buyNow = function(event){
   event.preventDefault();
   formData = $(this).serializeArray();
@@ -20,14 +29,12 @@ var buyNow = function(event){
     method: 'POST',
     url: '/cart_items',
     data: formData,
-    success: function(response){
-      console.log("THIS IS THE OUTPUT: " + response )
-      $('#cart-item-count').html(" " + response);
-      $("tr#" + response).append();
-    },
-  }).fail(function(){
-    console.log("THIS IS AN ERROR IN buyNow ajax")
-  });
+  }).done(function(response){
+    // console.log("THIS IS THE OUTPUT: " + response )
+    $('#cart-item-count').html(" " + response);
+    // $("tr#" + response).append();
+    refreshCart()
+  })
 };
 
 var updateOrderQty = function(event){
