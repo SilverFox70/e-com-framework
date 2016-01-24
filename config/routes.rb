@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :cart_items
+  resources :carts, only: :destroy
   resources :items
   resources :users do
     post 'make_admin', on: :collection
