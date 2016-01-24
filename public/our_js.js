@@ -47,6 +47,7 @@ var deleteItemLine = function(event){
     url: this_path,
   }).done(function(response){
     console.log("returned from cart_items controller: " + response);
+    $("tr#" + response).remove();
   });
 };
 
