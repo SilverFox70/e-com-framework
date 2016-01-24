@@ -10855,3 +10855,162 @@ Processing by SessionsController#create as HTML
   Rendered sessions/_form.html.erb (0.5ms)
 Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 0.5ms)
   [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (2.3ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.1ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (18.3ms)[0m  [1mTRUNCATE TABLE "public"."cart_items", "public"."carts", "public"."items", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:01:23 -0800
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (4.9ms)[0m  SELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC
+  Rendered items/index.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_nav.html.erb (32.7ms)
+  Rendered sessions/_form.html.erb (1.8ms)
+Completed 200 OK in 584ms (Views: 549.8ms | ActiveRecord: 6.8ms)
+Started GET "/assets/application-0d963d524056748e34ac13ad5a19a791b54835fe5f52c2c31e78b2671d4c69c3.js" for 127.0.0.1 at 2016-01-23 17:01:24 -0800
+Started GET "/assets/application-8a823ea2eca5b96183392c9dc820cd72167e5d515b9d3578c064c1903af0bff2.css" for 127.0.0.1 at 2016-01-23 17:01:24 -0800
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:01:26 -0800
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (1.3ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  Rendered items/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+  Rendered sessions/_form.html.erb (0.4ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = '1@2.3' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["firstname", "John"], ["lastname", "Doe"], ["email", "1@2.3"], ["password_digest", "$2a$04$3S22ryjEczpB4WJKCnONde731gCcCMHFKk/OP2KlLeHUrJI9mEiP2"], ["user_type", 0], ["created_at", "2016-01-24 01:01:26.796763"], ["updated_at", "2016-01-24 01:01:26.796763"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:01:26 -0800
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC
+  Rendered items/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_nav.html.erb (0.5ms)
+  Rendered sessions/_form.html.erb (0.6ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.5ms)
+Started POST "/sessions" for 127.0.0.1 at 2016-01-23 17:01:27 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"1@2.3", "password_plaintext"=>"[FILTERED]", "login"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "1@2.3"]]
+  Rendered sessions/_form.html.erb (0.5ms)
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_nav.html.erb (0.4ms)
+  Rendered sessions/_form.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 12.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (0.9ms)[0m  [1mDELETE FROM "public"."cart_items";[0m
+  [1m[35m (0.8ms)[0m  DELETE FROM "public"."carts";
+  [1m[36m (0.6ms)[0m  [1mDELETE FROM "public"."items";[0m
+  [1m[35m (0.4ms)[0m  DELETE FROM "public"."users";
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:23 -0800
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.9ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  Rendered items/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_nav.html.erb (40.2ms)
+  Rendered sessions/_form.html.erb (1.7ms)
+Completed 200 OK in 563ms (Views: 540.0ms | ActiveRecord: 2.9ms)
+Started GET "/assets/application-0d963d524056748e34ac13ad5a19a791b54835fe5f52c2c31e78b2671d4c69c3.js" for 127.0.0.1 at 2016-01-23 17:03:23 -0800
+Started GET "/assets/application-8a823ea2eca5b96183392c9dc820cd72167e5d515b9d3578c064c1903af0bff2.css" for 127.0.0.1 at 2016-01-23 17:03:23 -0800
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:24 -0800
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (1.2ms)[0m  SELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC
+  Rendered items/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+  Rendered sessions/_form.html.erb (0.4ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = '1@2.3' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstname", "John"], ["lastname", "Doe"], ["email", "1@2.3"], ["password_digest", "$2a$04$mUk3UVpDEZcVldd5XCxQru2393yhpeIFIcmIdWO5dcHniJIMfxZja"], ["user_type", 0], ["created_at", "2016-01-24 01:03:25.539911"], ["updated_at", "2016-01-24 01:03:25.539911"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:25 -0800
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  Rendered items/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_nav.html.erb (0.5ms)
+  Rendered sessions/_form.html.erb (0.4ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "cart_items" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "items" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (1.7ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.0ms)[0m  select table_name from information_schema.views where table_schema = 'shoppe_test'
+  [1m[36m (0.5ms)[0m  [1mDELETE FROM "public"."cart_items";[0m
+  [1m[35m (0.4ms)[0m  DELETE FROM "public"."carts";
+  [1m[36m (0.5ms)[0m  [1mDELETE FROM "public"."items";[0m
+  [1m[35m (0.5ms)[0m  DELETE FROM "public"."users";
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "cart_items" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "items" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:47 -0800
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.9ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  Rendered items/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_nav.html.erb (25.3ms)
+  Rendered sessions/_form.html.erb (0.7ms)
+Completed 200 OK in 449ms (Views: 432.7ms | ActiveRecord: 2.1ms)
+Started GET "/assets/application-0d963d524056748e34ac13ad5a19a791b54835fe5f52c2c31e78b2671d4c69c3.js" for 127.0.0.1 at 2016-01-23 17:03:47 -0800
+Started GET "/assets/application-8a823ea2eca5b96183392c9dc820cd72167e5d515b9d3578c064c1903af0bff2.css" for 127.0.0.1 at 2016-01-23 17:03:47 -0800
+  [1m[35m (1.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:48 -0800
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (1.9ms)[0m  SELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC
+  Rendered items/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_nav.html.erb (0.8ms)
+  Rendered sessions/_form.html.erb (0.8ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.9ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = '1@2.3' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "password_digest", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstname", "John"], ["lastname", "Doe"], ["email", "1@2.3"], ["password_digest", "$2a$04$Bb.LFyS4SuZmrRUqZ2iWA.nfyuFTyFi0QH2gTraVPwdfmHgDJa.dK"], ["user_type", 0], ["created_at", "2016-01-24 01:03:49.491392"], ["updated_at", "2016-01-24 01:03:49.491392"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2016-01-23 17:03:49 -0800
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.6ms)[0m  [1mSELECT "items".* FROM "items"  ORDER BY "items"."created_at" ASC[0m
+  Rendered items/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+  Rendered sessions/_form.html.erb (0.6ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.6ms)
+Started POST "/sessions" for 127.0.0.1 at 2016-01-23 17:03:50 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"1@2.3", "password_plaintext"=>"[FILTERED]", "login"=>""}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "1@2.3"]]
+  Rendered sessions/_form.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_nav.html.erb (1.0ms)
+  Rendered sessions/_form.html.erb (0.9ms)
+Completed 200 OK in 28ms (Views: 12.3ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m

@@ -35,7 +35,7 @@ RSpec.configure do |config|
 
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   include Capybara::DSL
   Capybara.run_server = true
@@ -43,7 +43,7 @@ RSpec.configure do |config|
   Capybara.app_host = "http://localhost:#{Capybara.server_port}"
 
 
-  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.strategy = :deletion
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
