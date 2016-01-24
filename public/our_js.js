@@ -8,6 +8,7 @@ var bindListeners = function(){
   $("form[action='/cart_items']").on("submit", buyNow);
   $(".dropdown").on('click', 'a.qty', updateOrderQty);
   $("#shopping-cart").on('click', 'a.remove-button', deleteItemLine);
+  $('#checkout').on('click', 'a', checkoutCart);
 };
 
 var buyNow = function(event){
@@ -20,11 +21,12 @@ var buyNow = function(event){
     url: '/cart_items',
     data: formData,
     success: function(response){
-    console.log("THIS IS THE OUTPUT: " + response )
-    $('#cart-item-count').html(" " + response);
-    $("tr#" + response).append();
+      console.log("THIS IS THE OUTPUT: " + response )
+      $('#cart-item-count').html(" " + response);
+      $("tr#" + response).append();
     },
-    error: console.log("THIS IS AN ERROR IN buyNow ajax"),
+  }).fail(function(){
+    console.log("THIS IS AN ERROR IN buyNow ajax")
   });
 };
 
@@ -53,4 +55,14 @@ var deleteItemLine = function(event){
   });
 };
 
-
+var checkoutCart = function(event){
+  event.preventDefault();
+  var this_path = $(this).attr('href');
+  $.ajax({
+    method: 'DELETE',
+    url: this_path,
+  }).done(function(response){
+    console.log("Sucess!");
+    $('.cart_row').remove()
+  });
+};
