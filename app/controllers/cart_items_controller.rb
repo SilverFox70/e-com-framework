@@ -29,7 +29,7 @@ class CartItemsController < ApplicationController
     cart_item = CartItem.find_by(item_id: params[:id], cart_id: user_cart_id)
     cart_item.destroy
     if request.xhr?
-      render json: cart_item.item.id
+      render json: {id: cart_item.item.id, count: current_user.cart_items.count}
     else
       redirect back
     end
