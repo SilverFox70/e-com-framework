@@ -1,8 +1,7 @@
 <table id='shopping-cart'>
   <th>Item Name</th>
   <th>Number Ordered</th>
-  <th>Price Each</th>
-  <th>Total Price</th>
+  <th>Price</th>
   <th>Remove</th>
   <% current_user.cart_items.each do |cart_item| %>
     <% item = cart_item.item %>
@@ -13,4 +12,4 @@
   <td colspan='2'>Total Price : <%= current_user.cart.cart_total %></td>
   <td></td>
 </tr>
-</table>
+
