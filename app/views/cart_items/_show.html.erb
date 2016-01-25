@@ -10,7 +10,7 @@
   <% end %>
 <tr>
   <td id='checkout' colspan='2'><%= link_to 'Checkout', cart_path(current_user.cart), method: :delete %></td>
-  <td colspan='2'>Total Price: <%= current_user.cart.cart_total %></td>
+  <td colspan='2'>Total Price : <%= current_user.cart.cart_total %></td>
   <td></td>
 </tr>
 </table>
