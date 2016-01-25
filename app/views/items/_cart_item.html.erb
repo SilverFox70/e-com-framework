@@ -7,10 +7,10 @@
             <%= cart_item.quantity %>
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
             <% n = 1 %>
             <% item.quantity.times do %>
-              <li><a href="/<%= item.id %>?qty=<%= n %>" class='qty'><%= n %></a></li>
+              <li><a href="/cart_items/<%= item.id %>?qty=<%= n %>" class='qty'><%= n %></a></li>
               <% n += 1 %>
             <% end %>
           </ul>
