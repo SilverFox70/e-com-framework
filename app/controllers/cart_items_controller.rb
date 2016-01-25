@@ -15,12 +15,14 @@ class CartItemsController < ApplicationController
     end
   end
 
+
+
   def update
     cart_item = CartItem.find_by(item_id: params[:id], cart_id: user_cart_id)
     cart_item.update(quantity: params[:qty])
-    unless request.xhr?
-      # render json: cart_item.quantity
-    # else
+    if request.xhr?
+      render json: cart_item.quantity
+    else
       redirect back
     end
   end
