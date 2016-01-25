@@ -7,7 +7,7 @@ $(document).ready(function(){
 var bindListeners = function(){
   $("form[action='/cart_items']").on("submit", buyNow);
   $(".dropdown").on('click', 'a.qty', updateOrderQty);
-  $("#shopping-cart").on('click', 'a.remove-button', deleteItemLine);
+  $(".modal-body").on('click', 'a.remove-button', deleteItemLine);
   $('#checkout').on('click', 'a', checkoutCart);
 };
 

@@ -14,16 +14,21 @@ RSpec.describe 'Login', type: :feature, :js => true do
       expect(page).to have_field("Password")
     end
     it 'user can log in with valid credentials' do
-      user = User.create( firstname: 'John',
+      @user = User.create( firstname: 'John',
                         lastname: 'Doe',
-                        email: "1@2.3",
-                        password: "123")
+                        email: "me@gmail.com",
+                        password: "1234")
+      p "~" * 40
       visit('/')
+      sleep 3
       click_on("Login")
-      fill_in('Email Address', :with => "1@2.3" )
-      fill_in('Password', :with => '123')
+      p User.all
+      fill_in('Email Address', :with => "me@gmail.com" )
+      fill_in('Password', :with => '1234')
+      sleep 3
       click_button("Login")
       expect(page).to have_text("Welcome")
+      sleep 5
     end
   end
 

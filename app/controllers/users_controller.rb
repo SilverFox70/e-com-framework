@@ -22,8 +22,12 @@ class UsersController < ApplicationController
   end
 
   def create
+    p "params @create: #{params.inspect} "
     @user = User.new(user_params)
     @user.password = params[:password_plaintext]
+    p "-" * 40
+    p @user
+    p "-" * 40
     if @user.save
       Cart.create(user_id: @user.id)
       session[:user_id] = @user.id
