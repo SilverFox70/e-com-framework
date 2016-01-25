@@ -7,5 +7,9 @@
     <% item = cart_item.item %>
     <%= render partial: "items/cart_item", locals: {cart_item: cart_item, item: item} %>
   <% end %>
-<tr><td id='checkout'><%= link_to 'Checkout', cart_path(current_user.cart), method: :delete %></td></tr>
-</table>
+<tr>
+  <td id='checkout' colspan='2'><%= link_to 'Checkout', cart_path(current_user.cart), method: :delete %></td>
+  <td colspan='2'>Total Price : <%= current_user.cart.cart_total %></td>
+  <td></td>
+</tr>
+
