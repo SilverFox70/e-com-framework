@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :cart_items
-  resources :carts, only: :destroy
+  resources :carts, only: [:destroy,:index]
+  # carts index is actually show, but removes need for id
+  # cart info is infered from current user method
   resources :items
   resources :users do
     post 'make_admin', on: :collection

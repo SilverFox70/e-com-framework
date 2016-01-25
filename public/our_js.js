@@ -11,6 +11,15 @@ var bindListeners = function(){
   $('#checkout').on('click', 'a', checkoutCart);
 };
 
+var refreshCart = function(){
+  $.ajax({
+    method: 'GET',
+    url: '/carts'
+  }).done(function(response){
+    $('#shopping-cart').replaceWith(response)
+  });
+};
+
 var buyNow = function(event){
   event.preventDefault();
   formData = $(this).serializeArray();
@@ -20,24 +29,24 @@ var buyNow = function(event){
     method: 'POST',
     url: '/cart_items',
     data: formData,
-    success: function(response){
-      console.log("THIS IS THE OUTPUT: " + response )
-      $('#cart-item-count').html(" " + response);
-      $("tr#" + response).append();
-    },
-  }).fail(function(){
-    console.log("THIS IS AN ERROR IN buyNow ajax")
-  });
+  }).done(function(response){
+    // console.log("THIS IS THE OUTPUT: " + response )
+    $('#cart-item-count').html(" " + response);
+    $("tr#" + response).append();
+    refreshCart()
+  })
 };
 
 var updateOrderQty = function(event){
   event.preventDefault();
-  var this_path = $(this).attr('href')
+  console.log("HEY YOU ")
+  var edit_url = "/cart_items" + $(this).attr('href')
   $.ajax({
     method: 'PUT',
-    url: "/cart_items" + this_path
+    url: edit_url
   }).done(function(response){
-    $('#dropdownMenu1').html(response)
+    $('#dropdownMenu').html(response)
+    refreshCart()
   });
 };
 
@@ -50,8 +59,9 @@ var deleteItemLine = function(event){
     url: this_path,
   }).done(function(response){
     console.log("returned from cart_items controller: " + response);
-    $("tr#" + response.id).remove();
     $('#cart-item-count').html(" " + response.count);
+    $("tr#" + response.id).remove();
+    refreshCart()
   });
 };
 
@@ -64,5 +74,6 @@ var checkoutCart = function(event){
   }).done(function(response){
     console.log("Sucess!");
     $('.cart_row').remove()
+    refreshCart()
   });
 };
