@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 var bindListeners = function(){
   $("form[action='/cart_items']").on("submit", buyNow);
-  $(".dropdown").on('click', 'a.qty', updateOrderQty);
+  $(".modal-body").on('click', 'a.qty', updateOrderQty);
   $(".modal-body").on('click', 'a.remove-button', deleteItemLine);
   $('#checkout').on('click', 'a', checkoutCart);
 };
@@ -40,7 +40,7 @@ var buyNow = function(event){
 var updateOrderQty = function(event){
   event.preventDefault();
   console.log("HEY YOU ")
-  var edit_url = "/cart_items" + $(this).attr('href')
+  var edit_url = $(this).attr('href')
   $.ajax({
     method: 'PUT',
     url: edit_url
